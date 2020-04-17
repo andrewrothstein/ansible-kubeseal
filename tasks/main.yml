@@ -1,0 +1,27 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: download..
+  become: '{{ kubeseal_escalate }}'
+  become_user: root
+  get_url:
+    url: '{{ kubeseal_url }}'
+    dest: '{{ kubeseal_install_exe }}'
+    checksum: '{{ kubeseal_checksum }}'
+    mode: 0755
+- name: link
+  become: '{{ kubeseal_escalate }}'
+  become_user: root
+  with_items: '{{ kubeseal_links }}'
+  file:
+    src: '{{ kubeseal_install_exe }}'
+    dest: '{{ item }}'
+    state: link

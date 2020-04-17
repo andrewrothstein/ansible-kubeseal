@@ -1,0 +1,9 @@
+---
+# vars file for kubeseal
+kubeseal_platform: '{{ kubeseal_os }}-{{ kubeseal_arch }}'
+kubeseal_url: '{{ kubeseal_mirror }}/{{ kubeseal_ver }}/kubeseal-{{ kubeseal_platform }}'
+kubeseal_checksum: '{{ kubeseal_checksums[kubeseal_ver][kubeseal_platform] }}'
+kubeseal_install_exe: '{{ kubeseal_install_dir }}/kubeseal-{{ kubeseal_platform }}-{{ kubeseal_ver }}'
+kubeseal_links:
+  - '{{ kubeseal_install_dir }}/kubeseal-{{ kubeseal_ver }}'
+  - '{{ kubeseal_install_dir }}/kubeseal'
