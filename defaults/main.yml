@@ -1,6 +1,6 @@
 ---
 # defaults file for kubeseal
-kubeseal_ver: v0.12.4
+kubeseal_ver: v0.12.5
 kubeseal_os: linux
 kubeseal_arch: amd64
 kubeseal_install_dir: /usr/local/bin
@@ -27,3 +27,8 @@ kubeseal_checksums:
     linux-amd64: sha256:94d7b09418eba22895cc6c038b5be500bef0c5cd963776e62a87491a156465f6
     # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/kubeseal-darwin-amd64
     darwin-amd64: sha256:1df3b9e28ae9a87d4ffa645309e147132f9f2764b4cf73e88c348d4cc52199ee
+  v0.12.5:
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.5/kubeseal-linux-amd64
+    linux-amd64: sha256:9e6f5e6a98b86e4801fb14677815655013776140d739c66b74b5968a4bb8be0e
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.5/kubeseal-darwin-amd64
+    darwin-amd64: sha256:238a1d290f80527ead1c521e0bb01d42df6e025fdcd711c5d30a039bc4d6c2fd
