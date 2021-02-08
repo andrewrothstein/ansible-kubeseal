@@ -9,7 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: download..
+- name: downloading {{ kubeseal_url }} to {{ kubeseal_install_exe }}
   become: '{{ kubeseal_escalate }}'
   become_user: root
   get_url:
@@ -17,7 +17,7 @@
     dest: '{{ kubeseal_install_exe }}'
     checksum: '{{ kubeseal_checksum }}'
     mode: 0755
-- name: link
+- name: linking...
   become: '{{ kubeseal_escalate }}'
   become_user: root
   with_items: '{{ kubeseal_links }}'
