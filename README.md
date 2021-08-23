@@ -1,6 +1,6 @@
 andrewrothstein.kubeseal
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-kubeseal.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-kubeseal)
+![Build Status](https://github.com/andrewrothstein/ansible-kubeseal/actions/workflows/build.yml/badge.svg)
 
 Installs Bitname Labs' [kubeseal for sealed secrets](https://github.com/bitnami-labs/sealed-secrets).
 
