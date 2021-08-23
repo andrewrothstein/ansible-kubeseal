@@ -2,3 +2,9 @@
 - hosts: all
   roles:
   - role: '{{ playbook_dir }}'
+  tasks:
+  - command: /usr/local/bin/kubeseal --version
+    register: kubeseal_test_output
+  - name: kubeseal --version
+    debug:
+      msg: '{{ kubeseal_test_output.stdout }}'
