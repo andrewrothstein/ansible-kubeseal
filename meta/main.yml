@@ -32,4 +32,6 @@ galaxy_info:
     - development
   role_name: kubeseal
 
-dependencies: []
+dependencies:
+  - role: andrewrothstein.unarchive-deps
+    version: v1.2.2
