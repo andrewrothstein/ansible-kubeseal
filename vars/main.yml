@@ -1,5 +1,7 @@
 ---
 # vars file for kubeseal
+kubeseal_os: '{{ ansible_system | lower }}'
+kubeseal_arch: '{{ kubeseal_arch_map[ansible_architecture] }}'
 kubeseal_platform: '{{ kubeseal_os }}-{{ kubeseal_arch }}'
 kubeseal_archive: kubeseal-{{ kubeseal_ver }}-{{ kubeseal_platform }}.{{ kubeseal_archive_type | default("tar.gz") }}
 kubeseal_tmp_archive: /tmp/{{ kubeseal_archive }}
