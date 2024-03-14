@@ -1,8 +1,9 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,48 +12,49 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: checking for install in {{ kubeseal_install_exe }}
+- name: Checking for install in {{ kubeseal_install_exe }}
   become: '{{ kubeseal_escalate }}'
-  stat:
+  ansible.builtin.stat:
     path: '{{ kubeseal_install_dir }}'
   changed_when: false
   register: kubeseal_binary
-- when: not kubeseal_binary.stat.exists
+- name: Downloading and installing kubeseal
+  when: not kubeseal_binary.stat.exists
   block:
-    - name: downloading {{ kubeseal_url }} to {{ kubeseal_tmp_archive }}
+    - name: Downloading {{ kubeseal_url }} to {{ kubeseal_tmp_archive }}
       become: '{{ kubeseal_escalate }}'
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ kubeseal_url }}'
         dest: '{{ kubeseal_tmp_archive }}'
         checksum: '{{ kubeseal_checksum }}'
-        mode: 0644
-    - name: mkdir {{ kubeseal_install_dir }}
+        mode: '644'
+    - name: Mkdir {{ kubeseal_install_dir }}
       become: '{{ kubeseal_escalate }}'
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ kubeseal_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchive {{ kubeseal_tmp_archive }} to {{ kubeseal_install_dir }}
+        mode: '755'
+    - name: Unarchive {{ kubeseal_tmp_archive }} to {{ kubeseal_install_dir }}
       become: '{{ kubeseal_escalate }}'
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ kubeseal_tmp_archive }}'
         dest: '{{ kubeseal_install_dir }}'
         creates: '{{ kubeseal_install_exe }}'
   always:
-    - name: rm {{ kubeseal_tmp_archive }}
+    - name: Rm {{ kubeseal_tmp_archive }}
       become: '{{ kubeseal_escalate }}'
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ kubeseal_tmp_archive }}'
         state: absent
-- name: linking {{ kubeseal_link }} to {{ kubeseal_install_exe }}
+- name: Linking {{ kubeseal_link }} to {{ kubeseal_install_exe }}
   become: '{{ kubeseal_escalate }}'
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ kubeseal_install_exe }}'
     dest: '{{ kubeseal_link }}'
     state: link
