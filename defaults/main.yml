@@ -1,6 +1,6 @@
 ---
 # defaults file for kubeseal
-kubeseal_ver: 0.27.3
+kubeseal_ver: 0.28.0
 kubeseal_arch_map:
   aarch64: arm64
   arm64: arm64
@@ -305,3 +305,16 @@ kubeseal_checksums:
     linux-arm64: sha256:a61a2b31de5eb2c2c943f12d0d8dc8fd61968be6c16078fc9e68ea091b4b05d6
     # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.3/kubeseal-0.27.3-windows-amd64.tar.gz
     windows-amd64: sha256:5c9ac7ad840c6d309655033e2d708c1eb06930f8ffe31b7b67d6c047447b1be8
+  '0.28.0':
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.28.0/kubeseal-0.28.0-darwin-amd64.tar.gz
+    darwin-amd64: sha256:f5c386c102568e1ad760d6bf89dd1940a89080a83f37377f5f596447d0ed7408
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.28.0/kubeseal-0.28.0-darwin-arm64.tar.gz
+    darwin-arm64: sha256:5223bd58e66a303bd01a7137d8f108e34c2be7d69486f4b3185d6c8751cac2f9
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.28.0/kubeseal-0.28.0-linux-amd64.tar.gz
+    linux-amd64: sha256:f6fbaeea184aaf942298768ad58e20329eede6ece7a8eccd3a38258ac84b7baa
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.28.0/kubeseal-0.28.0-linux-arm.tar.gz
+    linux-arm: sha256:35d3213a850a3820cc85455e5b7044368672606024e84949fd6053bbc0d7f377
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.28.0/kubeseal-0.28.0-linux-arm64.tar.gz
+    linux-arm64: sha256:9278624a6f3d2094eb2e0a6ec06b89318afe0f9bbea52dc0fe614243e225cd6c
+    # https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.28.0/kubeseal-0.28.0-windows-amd64.tar.gz
+    windows-amd64: sha256:57cbe198f70833bfbad8da776ced753d94fb4b3fde5a9de24a717c7d12f8fae4
